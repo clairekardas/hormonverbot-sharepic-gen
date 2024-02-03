@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: Free Software Foundation Europe <https://fsfe.org>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+allowed_mimes:
+  - image/heic
+  - image/heif
+  - image/jpeg
+  - image/png
+
+max_img_size: 8388608  # 8MiB

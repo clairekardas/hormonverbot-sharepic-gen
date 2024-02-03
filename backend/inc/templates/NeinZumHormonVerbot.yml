@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: Free Software Foundation Europe <https://fsfe.org>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+sharepic:
+  width: 1080
+  height: 1080
+
+picture_box:
+  width: 1080
+  height: 1080
+  grayscale: no
+
+font:
+  name: Lato-Semibold
+  color: white
+  uppercase: no
+  sizes:
+    - 40
+    - 40
+    - 60
+
+max_length:
+  message: 300
+  author: 50
+
+message_box:
+  width: 600
+  height: 600
+
+  margin_width: 445
+  margin_height: 200

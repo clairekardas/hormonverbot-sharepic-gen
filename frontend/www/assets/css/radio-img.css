@@ -1,0 +1,26 @@
+/*
+ * SPDX-License-Identifier: CC-BY-SA-4.0
+ * SPDX-FileCopyrightText: 2013 Roko C. Buljan
+ * Source: https://stackoverflow.com/a/17541916
+ */
+
+/* HIDE RADIO */
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+  filter: grayscale(100%);
+  opacity: 50%;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  filter: grayscale(0%);
+  opacity: 100%;
+}

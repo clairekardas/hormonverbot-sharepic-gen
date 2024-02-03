@@ -1,0 +1,58 @@
+/*
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ * SPDX-FileCopyrightText: Free Software Foundation Europe <https://fsfe.org>
+ */
+
+:root {
+  /* FSFE colors for reference, https://fsfe.org/contribute/designers/styleguide.en.html */
+  --trans-blue: #4DAFD4;
+  --trans-blue-medium: #408FAD;
+  --trans-pink: #F5A9B8;
+
+  /* Variables to be altered for theming. */
+  --primary: var(--trans-blue-medium);
+  --primary-hover: var(--fsfe-blue-medium);
+  --custom-button-color: var(--trans-pink);
+  --logo-src: url(../img/ck_logo.png);
+
+  /* Pico.css customization, https://picocss.com/docs/customization.html */
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-hover);
+  --switch-checked-background-color: var(--primary);
+}
+
+/* FSFE logo */
+img.logo {
+  content: var(--logo-src);
+  padding-bottom: 1em;
+}
+h1 {
+  margin-bottom: 0.5em;
+}
+
+/* Colorize template groups and "active" buttons */
+summary[role=button],
+button[type=submit],
+a#sharepicDownloadBtn
+{
+  background-color: var(--custom-button-color);
+  border-color: var(--color);
+}
+
+/* Centering sharepic previews */
+div.grid > div {
+  margin: 0 auto;
+}
+
+/* Additional description text for sharepic preview images */
+.prevNamedContainer {
+  position: relative;
+}
+.prevNamedOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-weight: bold;
+}

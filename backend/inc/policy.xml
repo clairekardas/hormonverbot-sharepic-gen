@@ -1,0 +1,35 @@
+<!--
+SPDX-FileCopyrightText: Free Software Foundation Europe <https://fsfe.org>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policymap [
+  <!ELEMENT policymap (policy)*>
+  <!ATTLIST policymap xmlns CDATA #FIXED ''>
+  <!ELEMENT policy EMPTY>
+  <!ATTLIST policy xmlns CDATA #FIXED '' domain NMTOKEN #REQUIRED
+    name NMTOKEN #IMPLIED pattern CDATA #IMPLIED rights NMTOKEN #IMPLIED
+    stealth NMTOKEN #IMPLIED value CDATA #IMPLIED>
+]>
+<policymap>
+  <policy domain="resource" name="memory" value="1GiB"/>
+  <policy domain="resource" name="map" value="2GiB"/>
+
+  <policy domain="delegate" rights="none" pattern="*" />
+
+  <policy domain="filter" rights="none" pattern="*" />
+
+  <policy domain="coder" rights="none" pattern="*" />
+  <policy domain="coder" rights="read" pattern="{SVG,PNG,HEIC}" />
+  <policy domain="coder" rights="read|write" pattern="{JPEG}" />
+
+  <policy domain="module" rights="none" pattern="*" />
+  <policy domain="module" rights="read|write" pattern="{SVG,JPEG,PNG,HEIC}" />
+
+  <policy domain="cache" name="memory-map" value="anonymous"/>
+  <policy domain="system" name="max-memory-request" value="256MiB"/>
+  <policy domain="system" name="memory-map" value="anonymous"/>
+  <policy domain="system" name="shred" value="1"/>
+</policymap>

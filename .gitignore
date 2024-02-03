@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: Free Software Foundation Europe <https://fsfe.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+/backend/audit.log
+/backend/backend

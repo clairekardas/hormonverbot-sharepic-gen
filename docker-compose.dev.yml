@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: Free Software Foundation Europe <https://fsfe.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+version: "3.9"
+
+services:
+  frontend:
+    build:
+        context: frontend
+        target: development
+    volumes:
+      - ./frontend/www:/app:ro

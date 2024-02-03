@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: Free Software Foundation Europe <https://fsfe.org>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+sharepic:
+  width: 530
+  height: 265
+
+picture_box:
+  width: 130
+  height: 130
+  grayscale: yes
+
+font:
+  uppercase: yes
+
+max_length:
+  author: 50
+
+message_box:
+  disable: yes

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trans Awareness Campaign</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #4DAFD4;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        .underline-text {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .underline-text::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 100%;
+            background-color: #F5A7BB;
+        }
+
+        .yellow-marker {
+            background-color: yellow;
+            padding: 2px 5px;
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+
+        .quote-container {
+            margin-top: 30px;
+        }
+
+        .quote {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .quote::before {
+            content: '«';
+            font-size: 3rem;
+            position: relative;
+            top: -15px;
+            color: #F5A7BB;
+        }
+
+        .author-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="underline-text yellow-marker">Trans Awareness Campaign</div>
+
+        <div class="quote-container">
+            <div class="quote">
+                «Der gegenwärtige Hype rund um Gender-Themen und -Ideologien ist für Kinder und Jugendliche eine besondere Herausforderung. Es besteht die Gefahr, dass sich Minderjährige dazu verleiten lassen, fragwürdige Therapien in Anspruch zu nehmen – mit nicht abschätzbaren Folgen für ihr weiteres Leben(...)Deshalb braucht es bis 2030 ein Verbot von Hormonbehandlungen unter 18 Jahren»<br>
+                - Österreich Plan von Karl Nehammer, Österreichischer Bundeskanzler
+            </div>
+        </div>
+
+        <div class="author-info">
+            <!-- You can include additional information about the author here if needed -->
+        </div>
+    </div>
+</body>
+</html>

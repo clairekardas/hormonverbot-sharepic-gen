@@ -1,0 +1,157 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--
+SPDX-FileCopyrightText: Free Software Foundation Europe <https://fsfe.org>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="./assets/css/pico.min.css" />
+  <link rel="stylesheet" href="./assets/css/radio-img.css" />
+  <link rel="stylesheet" href="./assets/css/custom.css" />
+  <link rel="icon" href="./assets/img/fsfe.ico" type="image/x-icon" />
+  <title>FSFE Sharepic Generator</title>
+</head>
+<body>
+  <main class="container">
+    <div id="header">
+      <div>
+        <img alt="FSFE Logo" class="logo" />
+      </div>
+      <p id="statement">
+        Dieser Generator basiert auf Code der Free Software Foundation Europe, einer non-profit organisation die sich der <a href="https://fsfe.org/about/basics/freesoftware.html">Förderung freier Software</a> widmet.
+      </p>
+    </div>
+    <div id="content">
+      <h1>#NeinZumHormonVerbot Sharepic Generator</h1>
+
+      <p>
+        Ein Bild sagt mehr als tausend Worte!<br>
+          Auf dieser Seite kannst du dein #NeinZumHormonVerbot Bild erstellen, das in den sozialen Medien geteilt, oder in einem Blog veröffentlicht werden kann.<br><br>
+          Um eine Vorlage auf dein eigenes Bild anzuwenden, fülle einfach alle Felder aus, sende es es ab und lade das fertige Sharepic herunter.
+      </p>
+
+      <noscript>
+        <p>
+          <mark>JavaScript:</mark>
+          This web application works best with JavaScript enable.
+          Please consider doing so.
+        </p>
+      </noscript>
+
+      <form id="sharepicForm" action="./sharepic" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" id="responseFormat" name="responseFormat" value="raw" />
+
+        <h3>Suche dir eine Vorlage aus</h3>
+          <div class="grid">
+            <div>
+              <label>
+                <input type="radio" name="template" value="NeinZumHormonVerbot" required="required" />
+                <img src="./assets/examples/NeinZumHormonVerbot.jpg" style="width: 40%;" />
+              </label>
+            </div>
+          </div>
+
+        <label for="file">
+          Upload your picture
+          <input type="file" name="img" id="img" required="required" />
+        </label>
+        <label for="message">
+          Compose your message
+          <textarea name="message" id="message" required="required"></textarea>
+        </label>
+        <div class="grid">
+          <label for="authorName">
+            Add your name...
+            <input type="text" name="authorName" id="authorName" required="required" />
+          </label>
+          <label for="authorDesc">
+            ...and a short description of yourself
+            <input type="text" name="authorDesc" id="authorDesc" required="required" />
+          </label>
+        </div>
+        <button id="sharepicFormBtn" type="submit" aria-busy="false">Generate Sharepic</button>
+      </form>
+
+      <dialog id="resultModal">
+        <article>
+          <a href="#close"
+             aria-label="Close"
+             class="close"
+             data-target="resultModal"
+             onClick="toggleModal(event)">
+          </a>
+
+          <img id="sharepicImg">
+
+          <p id="sharepicError"></p>
+
+          <footer>
+            <a href="#close"
+               role="button"
+               class="secondary"
+               aria-label="Close"
+               class="close"
+               data-target="resultModal"
+               onClick="toggleModal(event)">
+              Close
+            </a>
+
+            <a id="sharepicDownloadBtn" href="#" role="button">
+              Download
+            </a>
+          </footer>
+        </article>
+      </dialog>
+
+    </div>
+    <footer>
+      <hr />
+      <small>
+        <p>
+          A service of the Free Software Foundation Europe.
+          The <a href="https://git.fsfe.org/fsfe-system-hackers/sharepic">code</a> of this service is Free Software.
+        </p>
+        <p>
+          <a href="https://fsfe.org/about/legal/imprint.html">Imprint & Privacy Policy</a>
+        </p>
+        <details>
+          <summary>How we protect your data</summary>
+          <p>
+            <abbr title="too long; didn't read">tl;dr</abbr>:
+            We took various measures to make sure that your entered data will not be stored on any kind of persistent storage.
+            As the <a href="https://git.fsfe.org/fsfe-system-hackers/sharepic">code</a> is Free Software, you can verify this.
+          </p>
+          <p>
+            The posted user input - a set of a name, a description, a message, and a picture - will be received via HTTP by the Apache HTTP server within the frontend container, which logs that such an event has happend but without the information itself - this log does not include an IP address.
+          </p>
+          <p>
+            The HTTP request will directly be forwarded to the backend container to construct the sharepic based on the input.
+            Therefore, both a temporary SVG and later a JPEG file will be created within the backend container's memory.
+            In other words, none of those files will be written on a disk and just be stored in memory.
+          </p>
+          <p>
+            To create the JPEG based on the SVG, the FOSS ImageMagick tool is used locally within the backend container through its MagickWand API.
+            ImageMagick was forbidden to connect to external resources.
+            Furthermore, the whole backend container should not be able to establish a connection to anything except the frontend container.
+          </p>
+          <p>
+            After creating the sharepic, the resulting JPEG file will be sent back via HTTP - proxied through the web server in the frontend - to the user.
+          </p>
+          <p>
+            No log should contain the user submitted input.
+            No user data should be written to anything except volatile memory.
+          </p>
+        </details>
+      </small>
+    </footer>
+  </main>
+
+  <script src="./assets/js/modal.js"></script>
+  <script src="./assets/js/sfscon-fields.js"></script>
+  <script src="./assets/js/sharepic.js"></script>
+  <script src="./assets/js/template-themes.js"></script>
+</body>
+</html>

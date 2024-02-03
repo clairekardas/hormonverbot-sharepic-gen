@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: Free Software Foundation Europe <https://fsfe.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+version: "3.9"
+
+services:
+  frontend:
+    container_name: sharepic-frontend
+    build:
+      context: frontend
+      target: production
+    image: sharepic-frontend
+    networks:
+      - app_internal
+      - default
+    restart: always
+    ports:
+      - "8830:8080"
+    labels:
+      proxy.host: "sharepic.fsfe.org"
+      proxy.host_alias: "sharepics.fsfe.org"
+      proxy.port: "8830"
+
+  backend:
+    container_name: sharepic-backend
+    build: ./backend
+    image: sharepic-backend
+    tmpfs:
+      - /run
+      - /tmp
+    networks:
+      - app_internal
+    restart: always
+
+networks:
+  app_internal:
+    internal: true
